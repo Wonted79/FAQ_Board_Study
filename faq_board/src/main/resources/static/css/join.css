@@ -1,0 +1,57 @@
+body {
+    background-color: #f5f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.join-box {
+    width: 420px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.join-box h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.email-area {
+    display: flex;
+    gap: 8px;
+}
+
+.email-area input {
+    flex: 1;
+}
+
+.email-area button {
+    padding: 10px;
+    border: none;
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.join-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+}

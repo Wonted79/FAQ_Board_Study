@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ 홈</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- 🔵 상단 헤더 -->
+    <header class="header">
+
+        <div class="search-area">
+            <form th:action="@{/faq/search}" method="get">
+                <input type="text" name="keyword" placeholder="검색어를 입력하세요">
+                <button type="submit">검색</button>
+            </form>
+        </div>
+
+        <div class="user-area">
+            <span th:if="${session.loginUser != null}">
+                <b th:text="${session.loginUser.nickname}">닉네임</b> 님
+            </span>
+            <a th:if="${session.loginUser == null}" th:href="@{/auth/login}">
+                로그인
+            </a>
+        </div>
+
+    </header>
+
+    <!-- 🔵 본문 영역 -->
+    <div class="content">
+
+        <!-- 🟢 왼쪽 카테고리 -->
+        <aside class="sidebar">
+
+            <h3>카테고리</h3>
+
+            <ul>
+                <li>
+                    <a th:href="@{/faq}">전체보기</a>
+                </li>
+                <li th:each="category : ${categories}">
+                    <a th:href="@{/faq(category=${category})}"
+                       th:text="${category}">
+                        카테고리명
+                    </a>
+                </li>
+            </ul>
+
+        </aside>
+
+        <!-- 🟢 FAQ 리스트 -->
+        <main class="main">
+
+            <h2>FAQ 목록</h2>
+
+            <div class="faq-list">
+
+                <div class="faq-item"
+                     th:each="faq : ${faqList}">
+
+                    <h4>
+                        <a th:href="@{/faq/{id}(id=${faq.id})}"
+                           th:text="${faq.title}">
+                            질문 제목
+                        </a>
+                    </h4>
+
+                    <p th:text="${faq.content}">
+                        질문 내용 일부...
+                    </p>
+
+                    <span class="category"
+                          th:text="${faq.category}">
+                        카테고리
+                    </span>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 전체 박스 */
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* 카드 */
+.login-box {
+    background-color: white;
+    width: 420px;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 로고 영역 */
+.logo-area {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    color: #3b82f6;
+}
+
+.logo-text .on {
+    background-color: #3b82f6;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.sub-title {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* 입력창 */
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+form input:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+/* 체크박스 */
+.remember-area {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* 로그인 버튼 */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #3f51b5;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: 0.2s;
+}
+
+.login-btn:hover {
+    background-color: #334296;
+}
+
+/* 회원가입 버튼 */
+.join-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #3f51b5;
+    border-radius: 8px;
+    color: #3f51b5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.join-btn:hover {
+    background-color: #f0f2ff;
+}

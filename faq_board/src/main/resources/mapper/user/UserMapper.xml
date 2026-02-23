@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wonted79.faq_board.user.repository.UserMapper">
+
+    <select id="findByEmail" resultType="User">
+        select *
+        from users
+        where email=#{email}
+    </select>
+
+    <select id="findByUserId" resultType="User">
+        select *
+        from users
+        where user_id=#{userId}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="userId">
+        INSERT INTO users
+            (email, password, nickname, company_code, role, is_deleted)
+        VALUES
+            (#{email}, #{password}, #{nickname}, #{companyCode}, 'USER', false)
+    </insert>
+</mapper>

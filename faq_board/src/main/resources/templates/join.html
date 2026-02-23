@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" th:href="@{/css/join.css}">
+</head>
+<body>
+
+<div class="join-wrapper">
+    <div class="join-box">
+
+        <h2>회원가입</h2>
+
+        <form th:action="@{/auth/join}"
+              th:object="${joinRequest}"
+              method="post">
+            <label class="input-label">고객사 코드</label>
+            <input type="text" th:field="*{companyCode}" placeholder="고객사 코드" readonly>
+            <label class="input-label">이름</label>
+            <input type="text" th:field="*{nickname}" placeholder="이름" required>
+
+            <!-- 이메일 입력 -->
+            <div class="email-area">
+                <label class="input-label">이메일</label>
+                <input type="email" id="email" th:field="*{email}" placeholder="이메일" required>
+                <button type="button" onclick="sendCode()">인증코드 발송</button>
+            </div>
+
+            <!-- 인증코드 입력 -->
+            <div class="email-area">
+                <label class="input-label">인증확인</label>
+                <input type="text" id="emailCode" placeholder="인증코드 입력">
+                <button type="button" onclick="verifyCode()">인증확인</button>
+            </div>
+            <label class="input-label">비밀번호</label>
+            <input type="password" th:field="*{password}" placeholder="비밀번호" required>
+            <label class="input-label">비밀번호 확인</label>
+            <input type="password" th:field="*{passwordConfirm}" placeholder="비밀번호 확인" required>
+
+            <button type="submit" class="join-btn">회원가입</button>
+
+        </form>
+
+        <a th:href="@{/auth/login}">로그인으로 돌아가기</a>
+
+    </div>
+</div>
+
+<script>
+    function sendCode() {
+        const email = document.getElementById("email").value;
+
+        fetch('/auth/send-email', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email: email})
+        })
+            .then(res => res.text())
+            .then(data => alert(data));
+    }
+
+    function verifyCode() {
+        const email = document.getElementById("email").value;
+        const code = document.getElementById("emailCode").value;
+
+        fetch('/auth/verify-email', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email: email, code: code})
+        })
+            .then(res => res.text())
+            .then(data => alert(data));
+    }
+</script>
+
+</body>
+</html>
