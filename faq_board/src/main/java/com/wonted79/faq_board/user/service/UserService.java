@@ -1,7 +1,6 @@
 package com.wonted79.faq_board.user.service;
 
-import com.wonted79.faq_board.user.dto.JoinRequest;
-import com.wonted79.faq_board.user.dto.LoginRequest;
+import com.wonted79.faq_board.user.dto.SignUpRequest;
 import com.wonted79.faq_board.user.entity.User;
 import com.wonted79.faq_board.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -29,12 +28,12 @@ public class UserService {
     }
 
     //회원가입
-    public User join(JoinRequest joinRequest){
+    public User join(SignUpRequest signUpRequest){
         User user = new User();
-        user.setEmail(joinRequest.getEmail());
-        user.setNickname(joinRequest.getNickname());
-        user.setPassword(joinRequest.getPassword());
-        user.setCompanyCode(joinRequest.getCompanyCode());
+        user.setEmail(signUpRequest.getEmail());
+        user.setNickname(signUpRequest.getNickname());
+        user.setPassword(signUpRequest.getPassword());
+        user.setCompanyCode(signUpRequest.getCompanyCode());
 
         userRepository.save(user);
         return null;

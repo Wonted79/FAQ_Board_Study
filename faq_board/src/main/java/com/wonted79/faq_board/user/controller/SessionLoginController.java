@@ -48,16 +48,17 @@ public class SessionLoginController {
             session.invalidate(); // 세션 삭제
         }
 
-        return "redirect:/";
+        return "redirect:/auth/login";
     }
 
     //홈 화면 ,사용자 닉네임 표시
     @GetMapping("/")
     public String home(@SessionAttribute(name = "userId", required = false) Long userId,
                        Model model) {
-
+        log.info("userId : {}",userId);
         if (userId != null) {
             User user = userService.findById(userId);
+            log.info("user nickname: {}",user.getNickname());
             model.addAttribute("nickname", user.getNickname());
         }
 

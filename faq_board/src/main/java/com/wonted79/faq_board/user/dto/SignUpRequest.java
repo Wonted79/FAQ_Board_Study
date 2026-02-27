@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class JoinRequest {
+public class SignUpRequest {
     private String companyCode;
     private String nickname;
     private String password;

@@ -13,7 +13,7 @@
         <h2>회원가입</h2>
 
         <form th:action="@{/auth/join}"
-              th:object="${joinRequest}"
+              th:object="${signUpRequest}"
               method="post">
             <label class="input-label">고객사 코드</label>
             <input type="text" th:field="*{companyCode}" placeholder="고객사 코드" readonly>
